@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="tests" thread-count="1">
-  <test name="Test" parallel="instances" thread-count="10">
+<suite name="Suite" parallel="tests" thread-count="10">
+  <test name="DesktopBrowser" parallel="instances" thread-count="10">
     <classes>
       <class name="testClass.Testflow"/>
     </classes>
   </test> <!-- Test -->
+  <test name="MobileWebPage" parallel="instances" thread-count="10">
+    <classes>
+      <class name="testClass.MobileWebpage"/>
+    </classes>
+  </test>
+   <test name="MobileNativeApp" parallel="instances" thread-count="10">
+    <classes>
+      <class name="testClass.MobileNativeApp"/>
+    </classes>
+  </test>
 </suite> <!-- Suite -->

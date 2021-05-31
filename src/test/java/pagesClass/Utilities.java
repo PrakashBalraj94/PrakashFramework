@@ -9,21 +9,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class Utilities {
+public class Utilities extends BaseClass{
 	
 	WebDriver driver;
 	
-	//public static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<RemoteWebDriver>();
-	
-	public void initiateDesktopBrowser(String gridURL , DesiredCapabilities cap) throws MalformedURLException {
-		setDriver(gridURL, cap);
+	@SuppressWarnings("deprecation")
+	public void initiateDesktopBrowser(DesiredCapabilities cap) {
 		
-	}
-	
-	public void setDriver(String gridURL , DesiredCapabilities cap) throws MalformedURLException {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Prakash\\Desktop\\Selenium\\Jars\\chromedriver.exe");
-		//driver.set(new RemoteWebDriver(new URL(gridURL), cap));
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(cap);
+		driver.manage().window().maximize();
 		
 	}
 	
@@ -32,11 +27,4 @@ public class Utilities {
 		
 	}
 	
-
-	public void naviageURL() {
-		driver.get("https://www.amazon.in/");
-	}
-	
-	
-
 }

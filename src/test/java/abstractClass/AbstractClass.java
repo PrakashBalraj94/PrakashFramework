@@ -1,7 +1,10 @@
 package abstractClass;
 
+import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.UnknownHostException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,16 +15,21 @@ import pagesClass.BrowserHandler;
 import pagesClass.Utilities;
 
 public class AbstractClass extends Utilities {
-	WebDriver driver;
-	
-	public void initiateBrowser(String browserName) throws MalformedURLException {
+		
+	public void initiateBrowser(String browserName) {
 		
 		DesiredCapabilities cap = new DesiredCapabilities();
 		BrowserHandler br = new BrowserHandler();
 		
 		cap = br.setDesiredCapabilities(browserName);
-		initiateDesktopBrowser("http://192.168.1.10:4444/wd/hub", cap);
 		
+		initiateDesktopBrowser(cap);
+	}
+	
+	public void naviageURL(String url) throws InterruptedException {
+		
+		getDriver().get(url);
+		Thread.sleep(2000);
 	}
 	
 	
